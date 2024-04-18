@@ -4,5 +4,5 @@ Visual studios libraries
     -Pandas
     -NumPy
 
-Run:
+Command line run:
 pip install transformers torch pandas numpy
