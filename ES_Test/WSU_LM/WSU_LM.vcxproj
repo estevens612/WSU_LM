@@ -131,6 +131,7 @@
     <ClCompile Include="WSU_LM.py" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="author_matcher.py" />
     <None Include="import_data.py" />
     <None Include="question_answering.py" />
   </ItemGroup>

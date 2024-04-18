@@ -6,3 +6,5 @@ Visual studios libraries
 
 Command line run:
 pip install transformers torch pandas numpy
+
+pip install numpy scipy scikit-learn pandas
