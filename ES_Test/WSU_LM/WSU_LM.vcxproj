@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="author_matcher.py" />
+    <None Include="GUI.py" />
     <None Include="import_data.py" />
     <None Include="question_answering.py" />
   </ItemGroup>
