@@ -5,15 +5,17 @@ def load_data(filepath):
     return pd.read_csv(filepath)
 
 def get_context(df, question):
-    # Convert the question to lowercase and split it into keywords
-    keywords = question.lower().split()
+    stopwords = set(['the', 'is', 'at', 'which', 'on', 'of', 'and', 'a', 'to'])
+    keywords = [word for word in question.lower().split() if word not in stopwords]
 
-    # Search the DataFrame for rows where the 'Abstract' contains any of the keywords
-    for keyword in keywords:
-        relevant_rows = df[df['Abstract'].str.lower().str.contains(keyword, na=False)]
-        if not relevant_rows.empty:
-            # Return the 'Abstract' of the first relevant row found
-            return relevant_rows.iloc[0]['Abstract']
+    def score_row(row):
+        content = str(row['Abstract']) + ' ' + str(row['Title'])
+        return sum(content.lower().count(keyword) for keyword in keywords)
 
-    # Default context if no match is found
-    return "No relevant context found in the dataset for the question."
+    df['score'] = df.apply(score_row, axis=1)
+    best_row = df.loc[df['score'].idxmax()] if not df.empty else None
+
+    if best_row is not None and best_row['score'] > 0:
+        return f"Author: {best_row['Author']}. {best_row['Abstract']} {best_row['Title']}"
+    else:
+        return "No relevant context found in the dataset for the question."

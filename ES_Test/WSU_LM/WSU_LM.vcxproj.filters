@@ -29,5 +29,11 @@
     <None Include="question_answering.py">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="author_matcher.py">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="GUI.py">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
