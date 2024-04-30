@@ -10,7 +10,7 @@ def preprocess_text(text):
     return text
 
 def load_data():
-    data = pd.read_csv(r'C:\Users\estev\Desktop\WSU_LM\ES_Test\WSU_LM\SOARdata_merged2.csv')
+    data = pd.read_csv(r'C:\Users\estev\Desktop\WSU_LM\ES_Test\WSU_LM\SOARdata_merged8.csv')
     data['combined_text'] = data['Title'].fillna('') + " " + data['Abstract'].fillna('')
     data['combined_text'] = data['combined_text'].apply(preprocess_text)
     vectorizer = TfidfVectorizer()

@@ -24,7 +24,7 @@ def truncate_context(question, context, max_length=512):
 
 def main():
     # Load the dataset
-    data_path = r'C:\Users\estev\Desktop\WSU_LM\ES_Test\WSU_LM\SOARdata_merged2.csv'
+    data_path = r'C:\Users\estev\Desktop\WSU_LM\ES_Test\WSU_LM\SOARdata_merged8.csv'
     df = load_data(data_path)
 
     while True:
